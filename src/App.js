@@ -1,24 +1,23 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
-import About from './components/About';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
+import Content from './components/Content';
 import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <About />
-      <Projects />
-      <Skills />
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route path="/" exact component={AboutMe} />
+          <Route path="/portfolio" component={Portfolio} />
+          <Route path="/contact" component={ContactForm} />
+          <Route path="/resume" component={Resume} />
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
